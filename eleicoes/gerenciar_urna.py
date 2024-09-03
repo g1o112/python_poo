@@ -15,6 +15,7 @@ def iniciar_urna(eleitores, candidatos):
 
     return Urna(mesario, secao, zona, candidatos, eleitores)
 
+
 def votar(urna : Urna):
     titulo_eleitor = int(input("Digite o titulo do eleitor: "))
     eleitor = urna.get_eleitor(titulo_eleitor)

@@ -1,4 +1,5 @@
 import pickle
+from datetime import date
 from typing import List
 from common import *
 
@@ -39,6 +40,8 @@ class Urna:
         self.__eleitores_presentes.append(eleitor)
         if n_cand in self.__votos:
             self.__votos[n_cand] += 1
+        elif n_cand == 0:
+            self.__votos['BRANCO'] += 1
         else:
             self.__votos['NULO'] += 1
 
@@ -48,7 +51,16 @@ class Urna:
     def __str__(self):
         info = (f'Urna da seção {self.__secao}, zona {self.__zona}\n'
                 f'Mesario {self.mesario}\n')
+        data_atual = date.today()  # from datetime import date no começo do arquivo
+        info += f'{data_atual.ctime()}\n'
+        for k, v in self.__votos.items():
+            info += f'Candidato {k} = {v} votos\n'
 
+        return info
+
+    def zerisina(self):
+        with open('zeresina_' + self.__nome_arquivo, 'wb') as arquivo:
+            pickle.dump(self.__votos, arquivo)
 
 
 
