@@ -62,5 +62,8 @@ class Urna:
         with open('zeresina_' + self.__nome_arquivo, 'wb') as arquivo:
             pickle.dump(self.__votos, arquivo)
 
+    def encerrar(self):
+        with open('final_' + self.__nome_arquivo, 'wb') as arquivo:
+            pickle.dump(self.__votos, arquivo)
 
 
