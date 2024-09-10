@@ -72,9 +72,9 @@ class Disciplina:
         self.__alunos.append(a)
 
     def __str__(self):
-        info = f'ALuno: {self.__nome}'
-        info += f'Professor: {self.__professor}'
-        info += f'Ano/Semestre: {self.__ano}'
+        info = f'Disciplina: {self.__nome}\n'
+        info += f'Professor: {self.__professor}\n'
+        info += f'Ano/Semestre: {self.__ano}\n'
         for aluno in self.__alunos:
             info += f'{aluno.__str__()}'
         return info

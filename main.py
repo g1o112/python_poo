@@ -13,5 +13,14 @@ if __name__ == "__main__":
 
     List_quiz = [q1, q2, q3]
 
-    aluno1 = Aluno(1, "Rafael", List_quiz)
+    aluno1 = Aluno(1, "Ana", List_quiz)
     print(aluno1)
+    aluno2 = Aluno(2, "Rafael", List_quiz)
+    print(aluno2)
+
+    poo = Disciplina("Poo", "Ferauch", 2024, 2)
+    poo.add_aluno(aluno1)
+    poo.add_aluno(aluno2)
+
+
+    print(poo)
