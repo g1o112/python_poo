@@ -49,4 +49,33 @@ class Aluno:
         info += f'Total de pontos: {total}\n'
         return info
 
+    def get_matricula(self):
+        return self.__matricula
+
+class Disciplina:
+    __nome: str
+    __professor: str
+    __ano: int
+    __semestre: int
+    __alunos: List[Aluno] = []
+
+    def __init__(self, nome: str, prof: str, ano: int, semestre: int):
+        self.__nome = nome
+        self.__professor = prof
+        self.__ano = ano
+        self.__semestre = semestre
+
+    def add_aluno(self, a: Aluno):
+        for aluno in self.__alunos:
+            if a.get_matricula() == aluno.get_matricula():
+                raise Exception("Aluno já existe!!")
+        self.__alunos.append(a)
+
+    def __str__(self):
+        info = f'ALuno: {self.__nome}'
+        info += f'Professor: {self.__professor}'
+        info += f'Ano/Semestre: {self.__ano}'
+        for aluno in self.__alunos:
+            info += f'{aluno.__str__()}'
+        return info
 
